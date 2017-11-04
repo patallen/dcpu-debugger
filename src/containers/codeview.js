@@ -4,18 +4,23 @@ import { spacegray } from '../constants';
 import CodeLine from '../components/codeline';
 import {lines} from '../fake/codes';
 
+import { MenuHead } from '../components/menuhead';
+
 
 const Styled = styled.div`
     height: 100%;
-    background: ${spacegray.dark};
     flex-grow: 0;
+    overflow-y: auto;
 `;
 
 export default class CodeView extends React.Component {
     render() {
         let converted = lines.map((line) => <CodeLine {...line} />)
-        return (<Styled>
-            {converted}
-        </Styled>)
+        return (
+            <Styled>
+                <MenuHead text={'CODE'} />
+                {converted}
+            </Styled>
+        )
     }
 }

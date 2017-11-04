@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import * as consts from '../constants';
-import { spacegray } from '../constants';
+import { spacegray, theme } from '../constants';
 const memory = [
     36849, 2235, 50473, 25336, 22625, 4510, 19426, 38429, 45936, 5055, 1297, 11855, 12772, 60038, 14514, 5457,
     12136, 639, 59908, 63146, 20735, 23495, 24142, 25519, 36330, 35878, 27140, 29165, 51512, 48286, 32456, 40558,
@@ -244,15 +244,14 @@ const memory = [
 ];
 const Styled = styled.div`
     height: 100%;
-    background: ${spacegray.dark};
-    border-left: 1px solid ${spacegray.muted};
-    color: lightblue;
+    border-left: 1px solid ${theme.outline};
+    color: ${theme.plaintext};
     flex-grow: 2;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     display: flex;
-    overflow-y: scroll;
+    border-right: ${theme.outline};
 `;
 
 class Cell extends React.Component {

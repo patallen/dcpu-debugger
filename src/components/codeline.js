@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { spacegray } from '../constants';
+import { spacegray, theme } from '../constants';
 
 const linePadding = '0.2em 0';
-const separationPadding = '1em';
+const separationPadding = '1.2em';
 
 const Line = styled.div`
     width: 100%;
@@ -15,26 +15,28 @@ const Line = styled.div`
     };
     &:before {
         content: "";
-        width: 4px;
+        width: .5em;
     };
     &:after {
         content: "";
-        width: 4px;
+        width: 1em;
     };
+    font-size: 1.1em;
 `;
 
 const LineNumber = styled.div`
     padding-right: ${separationPadding};
+    color: ${theme.outline};
 `;
 
 const Instruction = styled.div`
     flex-grow: 1;
-    color: ${spacegray.plain};
+    color: ${theme.plaintext};
     padding-right: ${separationPadding};
 `;
 
 const Operation = styled.div`
-    color: ${spacegray.definition};
+    color: #CE537A;
     display: inline;
     font-weight: bold;
     padding-right: ${separationPadding};
@@ -45,7 +47,15 @@ const LineNote = styled.div`
 `;
 
 const BreakPoint = styled.div`
+    display: flex;
+    flex-direction: vertical;
     flex-grow: 0;
+    height: 0.6em;
+    width: 0.6em;
+    margin: 0.1em;
+    margin-right: .5em;
+    border: 1px solid ${theme.outline};
+    border-radius: 50%;
 `;
 
 export default class CodeLine extends React.Component {

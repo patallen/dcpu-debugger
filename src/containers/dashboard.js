@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { spacegray } from '../constants';
+import { theme } from '../constants';
 
 const Styled = styled.div`
-    background: ${spacegray.darkest};
+    background: ${theme.background};
     flex-grow: 1;
-    max-width: 300px;
+    min-width: 300px;
     &::before {
         content: "adklfjdaslkfj",
         width: 100px;
