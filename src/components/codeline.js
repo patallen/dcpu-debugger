@@ -6,8 +6,13 @@ const linePadding = '0.2em 0';
 const separationPadding = '1.2em';
 
 const Line = styled.div`
+    > * {
+        white-space: nowrap;
+    };
     width: 100%;
     display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
     padding: ${linePadding};
     &:hover {
         cursor: pointer;
@@ -47,15 +52,15 @@ const LineNote = styled.div`
 `;
 
 const BreakPoint = styled.div`
-    display: flex;
-    flex-direction: vertical;
-    flex-grow: 0;
-    height: 0.6em;
-    width: 0.6em;
+    min-width: 0.6em;
+    max-width: 0.6em;
+    min-height: 0.6em;
+    max-height: 0.6em;
     margin: 0.1em;
     margin-right: .5em;
-    border: 1px solid ${theme.outline};
     border-radius: 50%;
+    background: ${theme.outline};
+    visibility: ${props => props.breaking ? "visible" : "hidden"};
 `;
 
 export default class CodeLine extends React.Component {
@@ -63,7 +68,7 @@ export default class CodeLine extends React.Component {
         let {lineno, instruction, note, operands, breakpoint} = this.props;
         return (
             <Line>
-                <BreakPoint breaking={breakpoint} />
+                <BreakPoint breaking={true} />
                 <LineNumber>{lineno}</LineNumber>
                 <Instruction><Operation>{instruction}</Operation>{operands}</Instruction>
                 <LineNote>{note}</LineNote>

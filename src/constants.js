@@ -14,7 +14,6 @@ export const spacegray = {
     'darkest': '#1C1F26',
 }
 
-
 export const theme = {
     'outline': '#5D4D7A',
     'background': '#292B2E',

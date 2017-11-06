@@ -5,6 +5,7 @@ import { theme } from '../constants';
 const Styled = styled.div`
     font-size: 1.2em;
     display: flex;
+    text-transform: uppercase;
     align-items: center;
     height: 30px;
     width: 100%;

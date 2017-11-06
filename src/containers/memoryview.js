@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import * as consts from '../constants';
 import { spacegray, theme } from '../constants';
+import { MenuHead } from '../components/menuhead';
+
 const memory = [
     36849, 2235, 50473, 25336, 22625, 4510, 19426, 38429, 45936, 5055, 1297, 11855, 12772, 60038, 14514, 5457,
     12136, 639, 59908, 63146, 20735, 23495, 24142, 25519, 36330, 35878, 27140, 29165, 51512, 48286, 32456, 40558,
@@ -273,6 +275,8 @@ export default class MemoryView extends React.Component {
         let cells = memory.map((value, idx) => <Cell key={idx} value={value} /> );
         return (
         <Styled>
+            <MenuHead text="Registers" />
+            <MenuHead text="Memory" />
             <MemBox>
                 {cells}
             </MemBox>
