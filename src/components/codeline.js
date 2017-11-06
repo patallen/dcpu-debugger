@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { spacegray, theme } from '../constants';
+import { theme } from '../constants';
 
 const linePadding = '0.2em 0';
 const separationPadding = '1.2em';
@@ -48,7 +48,7 @@ const Operation = styled.div`
 `
 const LineNote = styled.div`
     flex-grow: 0;
-    color: ${spacegray.muted};
+    color: ${theme.muted};
 `;
 
 const BreakPoint = styled.div`

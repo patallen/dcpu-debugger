@@ -1,26 +1,28 @@
-import React from 'react';
-import styled from 'styled-components';
-import { spacegray } from '../constants';
-import CodeLine from '../components/codeline';
-import {lines} from '../fake/codes';
+import React from "react";
+import styled from "styled-components";
+import CodeLine from "../components/codeline";
+import { lines } from "../fake/codes";
 
-import { MenuHead } from '../components/menuhead';
-
+import { MenuHead } from "../components/menuhead";
+import Section from "../components/sectioncontainer";
 
 const Styled = styled.div`
-    height: 100%;
-    flex-grow: 0;
-    overflow-y: auto;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  flex-grow: 0;
 `;
 
 export default class CodeView extends React.Component {
-    render() {
-        let converted = lines.map((line) => <CodeLine {...line} />)
-        return (
-            <Styled>
-                <MenuHead text={'CODE'} />
-                {converted}
-            </Styled>
-        )
-    }
+  render() {
+    let converted = lines.map(line => <CodeLine {...line} />);
+    return (
+      <Section
+        title="Code"
+        minWidth="460px"
+        collapsable={false}>
+        {converted}
+      </Section>
+    );
+  }
 }

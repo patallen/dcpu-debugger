@@ -3,15 +3,16 @@ import styled from 'styled-components';
 import { theme } from '../constants';
 
 const Styled = styled.div`
-    font-size: 1.2em;
-    display: flex;
-    text-transform: uppercase;
     align-items: center;
-    height: 30px;
-    width: 100%;
+    background: ${theme.highlight};
     border-top: 1px solid ${theme.outline};
     color: ${theme.plaintext};
-    background: ${theme.highlight};
+    display: flex;
+    font-size: 1.1em;
+    height: 26px;
+    text-transform: uppercase;
+    width: 100%;
+    padding-left: .6em;
 `;
 
 const Padded = styled.span`
@@ -20,7 +21,7 @@ const Padded = styled.span`
 export const MenuHead = (props) => {
     return (
         <Styled>
-            <Padded padding={"0 1em"} >{props.text}</Padded>
+            {props.text}
         </Styled>
     )
 }

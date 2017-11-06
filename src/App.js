@@ -1,12 +1,12 @@
-import React from 'react';
-import Debugger from './containers/debugger';
-import Messages from './containers/messages';
-import { theme } from './constants';
+import React from "react";
+import Debugger from "./containers/debugger";
+import Messages from "./containers/messages";
+import { theme } from "./constants";
 
-import './App.css';
-import styled from 'styled-components';
+import "./App.css";
+import styled from "styled-components";
 
-import router from './router';
+import router from "./router";
 
 const Styled = styled.div`
   width: 100%;
@@ -20,10 +20,9 @@ const Header = styled.div`
   padding: 0.4em 0;
   background: ${theme.outline};
   justify-content: space-between;
-  flex-grow: 1;
   display: flex;
-  min-height: 50px;
-  border-bottom: 1px solid ${theme.highlight};
+  min-height: 40px;
+  max-height: 40px;
   color: ${theme.plaintext};
   img {
     height: 100%;
@@ -31,29 +30,37 @@ const Header = styled.div`
 `;
 
 const HeaderSection = styled.div`
-  margin: 0 .6em;
+  margin: 0 0.6em;
   display: flex;
   white-space: nowrap;
 `;
 
-const LogoImg = (props) => {
-  return <img style={{"display": "block"}} src="logo.svg"></img>
-};
+const LogoImg = styled.img`display: block;`;
 
 const HeaderItem = styled.div`
   display: flex;
   align-items: center;
-  padding: 0 .6em;
+  padding: 0 0.6em;
+`;
+
+const HeaderLogo = styled.div`
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  font-size: 2em;
+  img {
+    margin-left: -10px;
+  }
 `;
 class ConnectionControls extends React.Component {
   render() {
-    let {connection} = this.props;
+    let { connection } = this.props;
     return (
       <HeaderSection>
         <HeaderItem>Disconnect</HeaderItem>
         <HeaderItem>Connected to: ws://localhost:9999/</HeaderItem>
       </HeaderSection>
-    )
+    );
   }
 }
 
@@ -63,8 +70,10 @@ class App extends React.Component {
       <Styled>
         <Header>
           <HeaderSection>
-           <LogoImg />
-           <HeaderItem><h1>DEEPBUGGER</h1></HeaderItem>
+            <HeaderLogo>
+              DeepBurger
+              <LogoImg src={"logo.svg"} />
+            </HeaderLogo>
           </HeaderSection>
           <ConnectionControls />
         </Header>
