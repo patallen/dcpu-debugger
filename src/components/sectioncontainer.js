@@ -29,12 +29,14 @@ const Header = styled.div`
   width: 100%;
 `;
 
-const Container = styled.div`
+export const Container = styled.div`
   display: flex;
+  justify-content: bottom;
   align-items: center;
   flex-direction: column;
   min-width: ${props => props.minWidth};
   overflow: hidden;
+  width: 100%;
 `;
 
 const CollapseIndicator = ({collapsed}) => {
@@ -44,7 +46,6 @@ const CollapseIndicator = ({collapsed}) => {
 
 class CollapseHeader extends React.Component {
   render() {
-    console.log("collapse header", this.props)
     let { callback, collapsed, title } = this.props;
     return (
       <Header onClick={callback}>
@@ -110,6 +111,7 @@ export default class Section extends React.Component {
 
   render() {
     let { title, minWidth } = this.props;
+    minWidth = minWidth || "unset";
     return (
       <Container minWidth={minWidth}>
         <Header>{title}</Header>

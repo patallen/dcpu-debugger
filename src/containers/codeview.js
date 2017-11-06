@@ -19,8 +19,7 @@ export default class CodeView extends React.Component {
     return (
       <Section
         title="Code"
-        minWidth="460px"
-        collapsable={false}>
+        minWidth="460px">
         {converted}
       </Section>
     );

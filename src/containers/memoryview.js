@@ -4,6 +4,7 @@ import * as consts from '../constants';
 import { theme } from '../constants';
 import { MenuHead } from '../components/menuhead';
 import memory from '../fake/memory';
+import { SectionCollapsable, Container } from '../components/sectioncontainer';
 
 const Styled = styled.div`
     height: 100%;
@@ -36,12 +37,14 @@ export default class MemoryView extends React.Component {
     render() {
         let cells = memory.map((value, idx) => <Cell key={idx} value={value} /> );
         return (
-        <Styled>
-            <MenuHead text="Registers" />
-            <MenuHead text="Memory" />
-            <MemBox>
-                {cells}
-            </MemBox>
-        </Styled>)
+            <Container minWidth="400px">
+                <SectionCollapsable title="Registers">
+                    "stuff"
+                </SectionCollapsable>
+                <SectionCollapsable title="Memory">
+                <MemBox>{cells}</MemBox>
+                </SectionCollapsable>
+            </Container>
+        )
     }
 }
